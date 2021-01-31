@@ -374,6 +374,11 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 		interrupts = <GIC_SPI 304 IRQ_TYPE_EDGE_RISING>;
 	};
 
+	tkcore {
+		compatible = "trustkernel,tkcore";
+		interrupts = <GIC_SPI 296 IRQ_TYPE_EDGE_RISING>;
+	};
+
 	chipid@08000000 {
 		compatible = "mediatek,chipid";
 		reg = <0 0x08000000 0 0x0004>,
@@ -3109,15 +3114,9 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 
 	flashlights_mt6370: flashlights_mt6370 {
 		compatible = "mediatek,flashlights_mt6370";
-		decouple = <0>;
 		channel@1 {
 			type = <0>;
 			ct = <0>;
-			part = <0>;
-		};
-		channel@2 {
-			type = <0>;
-			ct = <1>;
 			part = <0>;
 		};
 	};
@@ -4056,7 +4055,6 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 	lk_charger: lk_charger {
 		compatible = "mediatek,lk_charger";
 		enable_anime;
-		enable_pe_plus;
 		enable_pd20_reset;
 		power_path_support;
 		max_charger_voltage = <6500000>;
@@ -4072,8 +4070,8 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 		pd_charger_current = <500000>;
 
 		/* battery temperature protection */
-		temp_t4_threshold = <50>;
-		temp_t3_threshold = <45>;
+		temp_t4_threshold = <58>;
+		temp_t3_threshold = <55>;
 		temp_t1_threshold = <0>;
 	};
 
@@ -4081,17 +4079,12 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 		compatible = "mediatek,charger";
 		algorithm_name = "SwitchCharging";
 		/* enable_sw_jeita; */
-		enable_pe_plus;
-		enable_pe_2;
-		enable_pe_3;
-		enable_pe_4;
 		enable_type_c;
 		power_path_support;
-		enable_dynamic_mivr;
 		disable_pd_dual;
 
 		/* common */
-		battery_cv = <4350000>;
+		battery_cv = <4440000>;
 		max_charger_voltage = <6500000>;
 		min_charger_voltage = <4600000>;
 
@@ -4135,12 +4128,11 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 		/* battery temperature protection */
 		enable_min_charge_temp;
 		min_charge_temp = <0>;
-		min_charge_temp_plus_x_degree = <6>;
-		max_charge_temp = <50>;
-		max_charge_temp_minus_x_degree = <47>;
+		min_charge_temp_plus_x_degree = <5>;
+		max_charge_temp = <58>;
+		max_charge_temp_minus_x_degree = <55>;
 
 		/* PE */
-		ta_12v_support;
 		ta_9v_support;
 		pe_ichg_level_threshold = <1000000>; /* uA */
 		ta_ac_12v_input_current = <3200000>;
@@ -4217,6 +4209,10 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 	goodix_fp: fingerprint {
 		compatible = "mediatek,goodix-fp";
 	};
+	
+	finger_proc {
+		compatible = "mediatek,teksun-finger_proc";
+	};
 
 	tcpc_pd: mt6370_pd_eint {
 	};
@@ -4261,24 +4257,43 @@ firmware_class.path=/vendor/firmware loop.max_part=7";
 	};
 
 	gyro: gyro {
+	compatible = "mediatek,gyroscope";
 	};
 
 	mse: mse {
 	};
 
-	als: als {
+	als_ps@0 {
+		compatible = "mediatek,als_ps";
+	};
+
+	step_counter@0 {
+		compatible = "mediatek,step_counter";
 	};
 
 	otg_iddig: otg_iddig {
 		compatible = "mediatek,usb_iddig_bi_eint";
 	};
+
+	hall_1 {
+		compatible = "mediatek, hall_1-eint";
+	};
+
+	hall_2 {
+		compatible = "mediatek, hall_2-eint";
+	};
+
+	hall_3 {
+		compatible = "mediatek, hall_3-eint";
+	};
+
 	/* NFC start */
 	nfc:nfc {
 		compatible = "mediatek,nfc-gpio-v2";
-		gpio-rst = <19>;
-		gpio-rst-std = <&pio 19 0x0>;
-		gpio-irq = <20>;
-		gpio-irq-std = <&pio 20 0x0>;
+		gpio-rst = <18>;
+		gpio-rst-std = <&pio 18a 0x0>;
+		gpio-irq = <21>;
+		gpio-irq-std = <&pio 21 0x0>;
 	};
 
 	irq_nfc: irq_nfc {

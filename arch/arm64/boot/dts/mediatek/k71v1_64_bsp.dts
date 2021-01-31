@@ -619,6 +619,180 @@
 	status = "okay";
 };
 
+	lcm_mode {
+		compatible = "mediatek,lcm_mode";
+	};
+
+	finger {
+		compatible = "mediatek,teksun-finger";
+	};
+
+	cust_accel@0 {
+		compatible = "mediatek,mir3da";
+	};
+
+	cust_accel@1 {
+		compatible = "mediatek,mxc622x_auto";
+	};
+
+	cust_accel@2 {
+		compatible = "mediatek,mc3xxx_auto";
+	};
+
+	cust_accel@3 {
+		compatible = "mediatek,bma250_auto";
+	};
+
+	cust_accel@4 {
+		compatible = "mediatek,mxc400x";
+	};
+
+	cust_accel@5 {
+		compatible = "mediatek,bmi160";
+	};
+
+	cust_accel@6 {
+		compatible = "mediatek,sc7a20";
+	};
+
+	cust_accel@7 {
+		compatible = "mediatek,msa300";
+	};
+
+	cust_accel@8 {
+		compatible = "mediatek,mxc6655";
+	};
+
+	cust_accel@10 {
+		compatible = "mediatek,icm426xx_acc";
+	};
+
+	cust_alsps@0 {
+		compatible = "mediatek,ltr559";
+	};
+
+	cust_alsps@1 {
+		compatible = "mediatek,stk3x1x_auto";
+	};
+
+	cust_alsps@2 {
+		compatible = "mediatek,stk3x3x_auto";
+	};
+
+	cust_alsps@3 {
+		compatible = "mediatek,stk3332_auto";
+	};
+
+	cust_alsps@10 {
+		compatible = "mediatek,stk3332sv_auto";
+	};
+
+	cust_alsps@4 {
+		compatible = "mediatek,EPL259x";
+	};
+
+	cust_alsps@5 {
+		compatible = "mediatek,em3071x";
+	};
+
+	cust_alsps@6 {
+		compatible = "mediatek,stk3x1x";
+	};
+
+	cust_alsps@7 {
+		compatible = "mediatek,ap3xx6";
+	};
+
+	cust_alsps@8 {
+		compatible = "mediatek,ltr578";
+	};
+
+	cust_mag@0 {
+		compatible = "mediatek,bmm150_new";
+	};
+
+	cust_mag@1 {
+		compatible = "mediatek,mmc5603x";
+	};
+
+	cust_mag@2 {
+		compatible = "mediatek,akm9918";
+	};
+
+	cust_gyro@0 {
+		compatible = "mediatek,bmg250";
+	};
+
+	cust_gyro@1 {
+		compatible = "mediatek,bmi160_gyro";
+	};
+
+	cust_gyro@2 {
+		compatible = "mediatek,icm426xx_gyro";
+	};
+
+	cust_baro@0 {
+		compatible = "mediatek,bmp280_baro";
+	};
+
+	cust_baro@1 {
+		compatible = "mediatek,icp101xx_baro";
+	};
+
+	temp@0 {
+		compatible = "mediatek,temprerature";
+	};
+
+	cust_accel@9 {
+		compatible = "mediatek,teksun_acc";
+		i2c_num = <4>;
+		i2c_addr = <24 0 0 0>;
+		direction = <3>;
+		power_id = <65535>;
+		power_vol = <0>;
+		firlen = <0>;
+		is_batch_supported = <0>;
+	};
+
+	cust_alsps@9 {
+		compatible = "mediatek,teksun_alsps";
+		i2c_num = <3>;
+		i2c_addr = <72 0 0 0>;
+		polling_mode_ps = <0>;
+		polling_mode_als = <1>;
+		power_id = <65535>;
+		power_vol = <0>;
+		als_level = <5 9 36 59 82 132 205 273 500 845 1136 1545 2364 4655 6982>;
+		als_value = <10 20 35 45 70 115 180 240 350 530  850 1700 2600 5120 7680 10240>;
+		ps_threshold_high = <150>;
+		ps_threshold_low = <100>;
+		state_val = <0>;
+		psctrl_val = <49>;
+		alsctrl_val = <57>;
+		ledctrl_val = <255>;
+		wait_val = <7>;
+		is_batch_supported_ps = <0>;
+		is_batch_supported_als = <0>;
+	};
+
+	cust_auxiliarycamera {
+		compatible = "mediatek,auxiliarycamera";
+
+		auxiliarycamera_parameter {
+			compatible = "mediatek,auxiliarycamera_parameter";
+			cumulative_cyles = <2>;
+			diff_percent = <30>;
+			cam3_1_bv_value = "gc0310,68,2";
+			cam3_2_bv_value = "gc032a,68,2";
+			cam3_3_bv_value = "null";
+			main1_bv_value = "ov16880_mipi_raw,48-50";
+			main2_bv_value = "null";
+			main3_bv_value = "null";
+			main4_bv_value = "null";
+			main5_bv_value = "null";
+		};
+	};
+
 #include <k71v1_64_bsp/cust.dtsi>
 #include "cust_mt6771_camera.dtsi"
 /*End of this file, DO NOT ADD ANYTHING HERE*/

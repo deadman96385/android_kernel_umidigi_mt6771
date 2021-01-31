@@ -21,20 +21,20 @@ bat_gm30: battery{
 	KEEP_100_PERCENT = <(2)>;
 	R_FG_VALUE = <(5)>;	/*	R_sense resistance.*/
 	/*	Configures whether using embedded battery or not.*/
-	EMBEDDED_SEL = <(0)>;
+	EMBEDDED_SEL = <(1)>;
 	PMIC_SHUTDOWN_CURRENT = <(20)>;	/*	System shutdown current.*/
 	FG_METER_RESISTANCE = <(75)>;	/*	The resistance of PCB*/
 	/*	Tune value for current measurement.*/
-	CAR_TUNE_VALUE = <(100)>;
+	CAR_TUNE_VALUE = <(98)>;
 	PMIC_MIN_VOL = <(34000)>;	/*	vboot voltage for gauge 0%.*/
 	POWERON_SYSTEM_IBOOT = <(500)>;	/*	power on system iboot*/
 	/*	shutdown gauge 0% voltage*/
 	SHUTDOWN_GAUGE0_VOLTAGE = <(34000)>;
 	TEMPERATURE_T0 = <(50)>;	/*	Battery temperature T0*/
 	TEMPERATURE_T1 = <(25)>;	/*	Battery temperature T1*/
-	TEMPERATURE_T2 = <(10)>;	/*	Battery temperature T2*/
-	TEMPERATURE_T3 = <(0)>;	/*	Battery temperature T3*/
-	TEMPERATURE_T4 = <(-10)>;	/*	Battery temperature T4*/
+	TEMPERATURE_T2 = <(0)>;	/*	Battery temperature T2*/
+	TEMPERATURE_T3 = <(-10)>;	/*	Battery temperature T3*/
+	TEMPERATURE_T4 = <(-11)>;	/*	Battery temperature T4*/
 	g_FG_PSEUDO100_T0 = <(100)>;	/*	Pseudo 100% percentage at T0.*/
 	g_FG_PSEUDO100_T1 = <(100)>;	/*	Pseudo 100% percentage at T1.*/
 	g_FG_PSEUDO100_T2 = <(100)>;	/*	Pseudo 100% percentage at T2.*/
